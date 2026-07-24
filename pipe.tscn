@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bhdptmefokail"]
+
+[ext_resource type="Script" uid="uid://nv5d6ubobkq" path="res://pipe.gd" id="1_78010"]
+[ext_resource type="Texture2D" uid="uid://2hxrhhwqi0th" path="res://pipe.png" id="2_arayy"]
+[ext_resource type="Script" uid="uid://lfo1b1qv75qe" path="res://score_area.gd" id="3_1uqvy"]
+[ext_resource type="Script" uid="uid://ce3wsxox0quvh" path="res://collision_shape_2d.gd" id="4_i3wvs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1uqvy"]
+size = Vector2(77, 560)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3wvs"]
+size = Vector2(78, 559)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08mfy"]
+size = Vector2(81, 561)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qp7r7"]
+size = Vector2(74, 556)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi0jh"]
+size = Vector2(22, 196)
+
+[node name="Pipe" type="Area2D" unique_id=2064892720]
+script = ExtResource("1_78010")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=846952341]
+texture = ExtResource("2_arayy")
+offset = Vector2(0, 380)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1265892604]
+position = Vector2(-0.5, 382)
+shape = SubResource("RectangleShape2D_1uqvy")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=2105355605]
+position = Vector2(-1, 380.5)
+shape = SubResource("RectangleShape2D_i3wvs")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1371109399]
+texture = ExtResource("2_arayy")
+offset = Vector2(0, -380)
+flip_v = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=2086255288]
+position = Vector2(-1.5, -380.5)
+shape = SubResource("RectangleShape2D_08mfy")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=1234037458]
+position = Vector2(-3, -382)
+shape = SubResource("RectangleShape2D_qp7r7")
+
+[node name="ScoreArea" type="Area2D" parent="." unique_id=266809259]
+script = ExtResource("3_1uqvy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea" unique_id=1283285062]
+position = Vector2(64, 1)
+shape = SubResource("RectangleShape2D_qi0jh")
+script = ExtResource("4_i3wvs")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="ScoreArea" to="." method="_on_score_area_body_entered"]

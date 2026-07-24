@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://btde2fkutn1nd"]
+
+[ext_resource type="Script" uid="uid://crlexuq584sd" path="res://main.gd" id="1_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://bgbc2ngpn3m1l" path="res://bg.png" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://822ieu6ueuam" path="res://ground.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bhdptmefokail" path="res://pipe.tscn" id="2_lquwl"]
+[ext_resource type="PackedScene" uid="uid://c5wq58vrg02fg" path="res://bird.tscn" id="3_1bvp3"]
+
+[node name="Main" type="Node" unique_id=433653532]
+script = ExtResource("1_1bvp3")
+pipe_scene = ExtResource("2_lquwl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=943809973]
+texture = ExtResource("1_ig7tw")
+offset = Vector2(432, 384)
+
+[node name="ground" parent="Sprite2D" unique_id=93843325 instance=ExtResource("2_h2yge")]
+
+[node name="Bird" parent="Sprite2D/ground" unique_id=1800535134 instance=ExtResource("3_1bvp3")]
+
+[node name="ground" parent="Sprite2D/ground/Bird" unique_id=390716912 instance=ExtResource("2_h2yge")]
+
+[node name="Bird" parent="." unique_id=1934045041 instance=ExtResource("3_1bvp3")]
+
+[node name="PipeTimer" type="Timer" parent="." unique_id=2107134192]
+wait_time = 1.5
+
+[connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
