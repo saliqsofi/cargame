@@ -6,21 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://bhdptmefokail" path="res://pipe.tscn" id="2_lquwl"]
 [ext_resource type="PackedScene" uid="uid://c5wq58vrg02fg" path="res://bird.tscn" id="3_1bvp3"]
 [ext_resource type="Script" uid="uid://wkajgqs3wa8h" path="res://score_label.gd" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://dvvn7p1w2t7nk" path="res://gameover.tscn" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://dp7v0tyex42cr" path="res://gameover.gd" id="8_5vw27"]
 
 [node name="Main" type="Node" unique_id=433653532]
 script = ExtResource("1_1bvp3")
 pipe_scene = ExtResource("2_lquwl")
 
+[node name="ground" parent="." unique_id=93843325 instance=ExtResource("2_h2yge")]
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=943809973]
 texture = ExtResource("1_ig7tw")
 offset = Vector2(432, 384)
-
-[node name="ground" parent="Sprite2D" unique_id=93843325 instance=ExtResource("2_h2yge")]
-
-[node name="Bird" parent="Sprite2D/ground" unique_id=1800535134 instance=ExtResource("3_1bvp3")]
-
-[node name="ground" parent="Sprite2D/ground/Bird" unique_id=390716912 instance=ExtResource("2_h2yge")]
-z_index = 1
 
 [node name="Bird" parent="." unique_id=1934045041 instance=ExtResource("3_1bvp3")]
 
@@ -40,5 +37,9 @@ theme_override_font_sizes/font_size = 40
 text = "SCORE: 0"
 script = ExtResource("5_lquwl")
 
-[connection signal="hit" from="Sprite2D/ground/Bird/ground" to="." method="_on_ground_hit"]
+[node name="Gameover" parent="." unique_id=240839919 instance=ExtResource("6_7mycd")]
+process_mode = 3
+script = ExtResource("8_5vw27")
+
 [connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
+[connection signal="visibility_changed" from="Gameover" to="." method="_on_gameover_visibility_changed"]

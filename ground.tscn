@@ -1,13 +1,11 @@
 [gd_scene format=3 uid="uid://822ieu6ueuam"]
 
-[ext_resource type="Script" uid="uid://dbe2dmi3fu8f5" path="res://ground.gd" id="1_t7tip"]
 [ext_resource type="Texture2D" uid="uid://cg0s844y8h5yi" path="res://ground.png" id="2_tv015"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wnojy"]
 size = Vector2(1728, 164)
 
 [node name="Ground" type="Area2D" unique_id=93843325]
-script = ExtResource("1_t7tip")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1317766765]
 position = Vector2(0, 852)
