@@ -1,14 +1,5 @@
-flappy bird remake 
+My first ever game made with Godot Engine!
 
+I'm a complete beginner in game development, so I decided to recreate one of the most iconic mobile games ever made: Flappy Bird.
 
-
-i am a total beginner in game dev 
-and i started with the most iconic game of an era 
-
-
-FLAPPY BIRD!
-
-i tried to remake it and i think i am pretty much succesfull
-
-there is only one control that is "LEFT MOUSE BUTTON" 
-and also i folllowed a youtube tutorial this is very easy game to play and make 
+Although I followed a YouTube tutorial to learn the basics, I built the project myself while understanding how each part works. This project helped me learn the fundamentals of Godot and 2D game development.
