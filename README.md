@@ -28,3 +28,9 @@ High score saving
 Difficulty levels
 Better animations
 Mobile support
+
+
+Instructions to run locally on godot
+ download the zip file from github then extract the folder and import it in godot and run it!!
+
+ you can also check the itch.io link here:https://saliqsofi.itch.io/flappy-bird
