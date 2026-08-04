@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal hit
 const GRAVITY : int = 1000
 const MAX_VEL : int = 600
 const FLAP_SPEED : int = -350
@@ -12,7 +13,7 @@ func _ready():
 	reset()
 
 func  reset():
-	falling = false
+	falling = true
 	flying = false
 	position = START_POS
 	set_rotation(0)
@@ -30,12 +31,13 @@ func _physics_process(delta):
 		if velocity.y > MAX_VEL:
 			velocity.y = MAX_VEL
 					
-			if flying:
-				set_rotation(deg_to_rad(velocity.y * 0.05))
+		if flying:
+			set_rotation(deg_to_rad(velocity.y * 0.05))
 		
 		move_and_slide()
 	if get_slide_collision_count() > 0: die()
-								
+	if position.y>get_viewport_rect().size.y:
+		die()
 func flap():
 	velocity.y = FLAP_SPEED
 				

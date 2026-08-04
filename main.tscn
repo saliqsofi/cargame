@@ -41,5 +41,6 @@ script = ExtResource("5_lquwl")
 process_mode = 3
 script = ExtResource("8_5vw27")
 
+[connection signal="hit" from="Bird" to="." method="_on_bird_hit"]
 [connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
 [connection signal="visibility_changed" from="Gameover" to="." method="_on_gameover_visibility_changed"]

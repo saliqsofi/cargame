@@ -110,3 +110,7 @@ func _on_ground_hit() -> void:
 
 func _on_gameover_visibility_changed() -> void:
 	new_game()
+
+
+func _on_bird_hit():
+	$Gameover.show()
